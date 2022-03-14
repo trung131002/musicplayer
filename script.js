@@ -218,3 +218,18 @@ audio.onended = function () {
     tests()
     audio.play()
 }
+
+// play and pause cd rotate
+const cd = document.querySelector('.cd')
+const cdThumbAnimate = cd.animate([{ transform: "rotate(360deg)" }], {
+        duration: 10000, // 10 seconds
+        iterations: Infinity
+    });
+cdThumbAnimate.pause();
+
+audio.onplay = function () {
+    cdThumbAnimate.play();
+}
+audio.onpause = function () {
+    cdThumbAnimate.pause();
+}
